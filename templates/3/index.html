@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-bg: #cd7143;
+        --secondary-bg: #f4cb9f;
+        --text-color: white;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--main-bg);
+        font-family: "Share Tech Mono", monospace;
+        font-size: 1.1rem;
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .mt {
+        margin-top: 1.25rem;
+      }
+      /* Left Section */
+      .left-section {
+        flex: 1 1 400px;
+        max-width: 600px;
+        padding: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .image-div {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid white;
+      }
+
+      .link-icon {
+        height: 30px;
+        width: 30px;
+        margin-right: 0.75rem;
+      }
+
+      th {
+        display: flex;
+        position: relative;
+        align-items: center;
+      }
+
+      .link-link {
+        align-items: center;
+        display: flex;
+        color: white;
+      }
+
+      .reference-div {
+        background-color: #cd7143;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        margin: 0.75rem;
+      }
+
+      .reference-list {
+        list-style: none;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h4 {
+        font-weight: normal;
+        margin-top: 0.5rem;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        margin: 0.75rem 0;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1.5rem;
+        gap: 1rem;
+      }
+
+      nav ul li {
+        background-color: pink;
+        color: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      nav ul li:hover {
+        background-color: #ffe3e3;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Right Section */
+      .right-section {
+        flex: 1 1 400px;
+        max-width: 700px;
+        background-color: var(--secondary-bg);
+        color: #000;
+        border-radius: 0.5rem;
+        padding: 2rem 1.5rem;
+        overflow-y: auto;
+        max-height: calc(100vh - 4rem);
+      }
+
+      .right-section h1,
+      .right-section h2 {
+        text-decoration: underline;
+      }
+
+      ol {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      #my_projects ol li {
+        margin-bottom: 2rem;
+      }
+
+      a {
+        color: #004aad;
+        text-decoration: underline;
+      }
+
+      .right-section::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .right-section::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+      }
+
+      .right-section::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .delete-button {
+        margin-left: 0.5rem;
+        border-radius: 0.2rem;
+        border: 1px red solid;
+        padding: 0.1rem 0.5rem;
+        cursor: pointer;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1024px) {
+        main {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .left-section,
+        .right-section {
+          width: 100%;
+          max-width: 90%;
+        }
+
+        .right-section {
+          max-height: none;
+        }
+
+        nav ul {
+          flex-direction: row;
+          gap: 0.5rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        img {
+          width: 120px;
+          height: 120px;
+        }
+
+        nav ul li {
+          margin: 0.25rem 0;
+          padding: 0.4rem 0.8rem;
+          font-size: 0.9rem;
+        }
+
+        .right-section {
+          padding: 1rem;
+        }
+
+        main {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div
+        style="
+          position: fixed;
+          right: 2.5rem;
+          top: 2.5rem;
+          background-color: red;
+          padding: 2rem;
+          border-radius: 50%;
+          font-size: 2rem;
+        "
+      >
+        34
+      </div>
+
+      <div
+        style="
+          position: fixed;
+          left: 2.5rem;
+          top: 2.5rem;
+          background-color: red;
+          padding: 0.5rem 2rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+        "
+      >
+        <div style="background-color: grey; padding: 0.25rem">
+          https://finder.io/portfolio/username
+        </div>
+        <div
+          style="
+            background-color: grey;
+            margin-top: 0.5rem;
+            display: flex;
+            width: 10rem;
+          "
+        >
+          Change Template
+        </div>
+      </div>
+
+      <div
+        style="
+          position: fixed;
+          left: 2.5rem;
+          bottom: 2.5rem;
+          background-color: red;
+          padding: 0.5rem 2rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+        "
+      >
+        Logout
+      </div>
+      <!-- Left side -->
+      <section class="left-section">
+        <div class="image-div">
+          <img src="assets/profile_image.png" alt="Profile Image" />
+        </div>
+        <button style="padding: 0.5rem 2rem; border-radius: 0.5rem; background-color: green; color: white; cursor: pointer;">
+          Change Profile Image
+        </button>
+
+        <div id="profile-section">
+          <h1>Name Goes Here</h1>
+          <h4>Quick One-Liner Bio</h4>
+          <h3>Something Else That Should Be In Bold</h3>
+          <hr />
+
+          <div>
+            <table>
+              <tr>
+                <th>
+                  <a
+                    href="https://facebook.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/facebook.png"
+                      alt="Facebook"
+                      class="link-icon"
+                    />
+                    <div>facebook.com/</div>
+                    username
+                  </a>
+                  <button class="delete-button">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://instagram.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/instagram.png"
+                      alt="Instagram"
+                      class="link-icon"
+                    />
+                    <div>instagram.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://onlyfans.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/OF.jpeg"
+                      alt="OnlyFans"
+                      class="link-icon"
+                    />
+                    <div>onlyfans.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://youtube.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/youtube.png"
+                      alt="Youtube"
+                      class="link-icon"
+                    />
+                    <div>youtube.com/@</div>
+                    username
+                  </a>
+
+                  <button class="delete-button">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a href="https://x.com" class="link-link" target="_blank">
+                    <img
+                      src="./assets/link_icons/twitter.png"
+                      alt="X"
+                      class="link-icon"
+                    />
+                    <div>x.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button">delete</button>
+                </th>
+              </tr>
+            </table>
+            <br />
+            <div class="input-div">
+              <label for="gender">Platform:</label>
+              <select id="gender" name="gender" required style="height: 2.5rem">
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="onlyfans">OnlyFans</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitter">X</option>
+              </select>
+              <input
+                type="text"
+                style="
+                  border-radius: 0.5rem;
+                  height: 2.5rem;
+                  padding-left: 0.5rem;
+                "
+              />
+            </div>
+            <button
+              style="
+                margin-top: 0.5rem;
+                padding: 0.5rem 2rem;
+                border-radius: 0.5rem;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+              "
+            >
+              Add Link
+            </button>
+            <hr />
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#about_me">About Me</a></li>
+            <li><a href="#my_services">My Services</a></li>
+            <li><a href="#my_references">My References</a></li>
+            <li><a href="#contact_me">Contact Me</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Right side -->
+      <section class="right-section">
+        <div id="about_me">
+          <h1>About Me</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            qui, quae adipisci recusandae molestiae placeat modi aliquam fugiat
+            itaque, consequatur accusantium. Nesciunt voluptas numquam
+            perspiciatis qui culpa. Itaque omnis iure accusamus repellendus
+            aliquid nobis praesentium error. Molestiae magni voluptates
+            similique. A mollitia maiores tenetur iure nobis possimus, ipsam
+            consequatur unde?
+          </p>
+          <input
+            type="text"
+            style="height: 10rem; width: 100%; border-radius: 0.5rem"
+          />
+          <button
+            style="
+              width: 100%;
+              background-color: green;
+              border-radius: 0.5rem;
+              margin-top: 0.5rem;
+              color: white;
+              height: 2rem;
+            "
+          >
+            Update About Me
+          </button>
+        </div>
+
+        <div id="my_services" class="mt">
+          <h1>My Services</h1>
+          <ol>
+            <li>
+              Service 1
+              <button class="delete-button">delete</button>
+            </li>
+            <li>
+              Service 2
+              <button class="delete-button">delete</button>
+            </li>
+            <li>
+              Service n
+              <button class="delete-button">delete</button>
+            </li>
+          </ol>
+          <div>
+            <input
+              type="text"
+              style="width: 100%; border-radius: 0.5rem; height: 2.5rem"
+            />
+
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Add Service
+            </button>
+          </div>
+        </div>
+
+        <div id="my_references" class="mt">
+          <h1>My References</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
+            sequi.
+          </p>
+          <ul class="reference-list">
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Denis
+                </p>
+
+                <button class="delete-button">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Alfred
+                </p>
+
+                <button class="delete-button">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Erick
+                </p>
+
+                <button class="delete-button">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Victor
+                </p>
+
+                <button class="delete-button">delete</button>
+              </div>
+            </li>
+          </ul>
+
+          <input
+            type="text"
+            style="height: 10rem; width: 100%; border-radius: 0.5rem"
+            placeholder="text"
+          />
+          <input
+            type="text"
+            placeholder="referee name"
+            name=""
+            id=""
+            style="
+              width: 100%;
+              border-radius: 0.5rem;
+              height: 2.5rem;
+              padding-left: 0.5rem;
+              border-radius: 0.5rem;
+              margin-top: 0.5rem;
+            "
+          />
+          <button
+            style="
+              width: 100%;
+              background-color: green;
+              border-radius: 0.5rem;
+              margin-top: 0.5rem;
+              color: white;
+              height: 2rem;
+            "
+          >
+            Add Reference
+          </button>
+        </div>
+
+        <div id="contact_me" class="mt">
+          <h1>Contact Me</h1>
+          <p>Let’s connect! I’m open to your ideas, feedback, and support</p>
+          <ol>
+            <li>
+              <a href="mailto:tabitha.iregi@students.dkut.ac.ke"
+                >email@students.dkut.ac.ke</a
+              >
+            </li>
+            <li><a href="tel:+\254700000000">+254 700 000 000</a></li>
+            <li>
+              <a href="https://wa.me/+254700000000" target="_blank"
+                >WhatsApp Me</a
+              >
+            </li>
+            <li>
+              <a href="https://x.com/@tabby_codes" target="_blank"
+                >Join My Accountability Group</a
+              >
+            </li>
+          </ol>
+
+          <div class="">
+            <input
+              type="text"
+              placeholder="contact"
+              name=""
+              id=""
+              style="
+                width: 100%;
+                border-radius: 0.5rem;
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+              "
+            />
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Add Contact
+            </button>
+          </div>
+        </div>
+
+        <br /><br />
+        <p style="text-align: center; font-size: 1.5rem">
+          <strong>Something Else That Should Be In Bold</strong>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
