@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin: 8px 0;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .services div,
+        .testimonials div {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #0066cc;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background: #0066cc;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #004999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Upload your photo by replacing profile.jpg -->
+    <img src="profile.jpg" alt="Profile Photo">
+    <h1 contenteditable="true">Your Name</h1>
+    <p contenteditable="true">Enter what you do (e.g. Web Developer | Designer | Freelancer)</p>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p contenteditable="true">
+        Click here and type your own description about yourself.
+        You can edit this text directly in the browser.
+    </p>
+</section>
+
+<section id="links">
+    <h2>My Links</h2>
+    <ul>
+        <li contenteditable="true">GitHub: https://github.com/yourname</li>
+        <li contenteditable="true">LinkedIn: https://linkedin.com/in/yourname</li>
+        <li contenteditable="true">Portfolio: https://yourwebsite.com</li>
+    </ul>
+</section>
+
+<section id="services" class="services">
+    <h2>My Services / Previous Work</h2>
+    <div contenteditable="true">
+        <strong>Service / Project Title</strong>
+        <p>Describe the service or work you have done.</p>
+    </div>
+    <div contenteditable="true">
+        <strong>Service / Project Title</strong>
+        <p>Describe the service or work you have done.</p>
+    </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+    <h2>Testimonials / References</h2>
+    <div contenteditable="true">
+        <p>"Type testimonial or reference here."</p>
+        <small>- Name</small>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p contenteditable="true">“Design is not just what it looks like and feels like. Design is how it works.”</p>
+</footer>
+
+</body>
+</html>
