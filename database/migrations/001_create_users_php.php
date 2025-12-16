@@ -1,0 +1,26 @@
+<?php
+
+return "
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(150) NOT NULL,
+    code VARCHAR(50) NOT NULL UNIQUE,
+
+    phone_number VARCHAR(30) NULL,
+    email VARCHAR(150) NULL,
+
+    title VARCHAR(100) NULL,
+    subtitle VARCHAR(150) NULL,
+
+    profile_picture_url VARCHAR(255) NULL,
+
+    template_id INT UNSIGNED DEFAULT 3,
+
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP 
+        ON UPDATE CURRENT_TIMESTAMP
+);
+";
