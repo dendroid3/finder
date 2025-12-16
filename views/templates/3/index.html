@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets//css/styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="views-counter logged-in">34</div>
+
+      <div class="link-and-template-selector logged-in">
+        <div class="link-and-template-selector-link">
+          https://finder.top/portfolio/username
+        </div>
+        <div class="link-and-template-selector-template">Change Template</div>
+      </div>
+
+      <div class="logout-button-div logged-in">Logout</div>
+      <!-- Left side -->
+      <section class="left-section">
+        <div class="image-div">
+          <img src="./assets/profile_image.png" alt="Profile Image" />
+        </div>
+        <input
+          type="file"
+          id="profilePic"
+          name="profilePic"
+          accept="image/*"
+          style="display: none"
+          required
+        />
+        <button
+          style="
+            padding: 0.5rem 2rem;
+            border-radius: 0.5rem;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+          "
+          class="logged-in"
+          id="profileImageSelection"
+        >
+          Change Profile Image
+        </button>
+
+        <div id="profile-section">
+          <h1>Name Goes Here</h1>
+          <h4>Quick One-Liner Bio</h4>
+          <h3>Something Else That Should Be In Bold</h3>
+          <hr />
+
+          <div>
+            <table>
+              <tr>
+                <th>
+                  <a
+                    href="https://facebook.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/facebook.png"
+                      alt="Facebook"
+                      class="link-icon"
+                    />
+                    <div>facebook.com/</div>
+                    username
+                  </a>
+                  <button class="delete-button logged-in">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://instagram.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/instagram.png"
+                      alt="Instagram"
+                      class="link-icon"
+                    />
+                    <div>instagram.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button logged-in">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://onlyfans.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/OF.jpeg"
+                      alt="OnlyFans"
+                      class="link-icon"
+                    />
+                    <div>onlyfans.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button logged-in">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a
+                    href="https://youtube.com"
+                    class="link-link"
+                    target="_blank"
+                  >
+                    <img
+                      src="./assets/link_icons/youtube.png"
+                      alt="Youtube"
+                      class="link-icon"
+                    />
+                    <div>youtube.com/@</div>
+                    username
+                  </a>
+
+                  <button class="delete-button logged-in">delete</button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <a href="https://x.com" class="link-link" target="_blank">
+                    <img
+                      src="./assets/link_icons/twitter.png"
+                      alt="X"
+                      class="link-icon"
+                    />
+                    <div>x.com/</div>
+                    username
+                  </a>
+
+                  <button class="delete-button logged-in">delete</button>
+                </th>
+              </tr>
+            </table>
+            <br />
+            <div class="input-div logged-in">
+              <label for="gender">Platform:</label>
+              <select id="gender" name="gender" required style="height: 2.5rem">
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="onlyfans">OnlyFans</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitter">X</option>
+              </select>
+              <input
+                type="text"
+                style="
+                  border-radius: 0.5rem;
+                  height: 2.5rem;
+                  padding-left: 0.5rem;
+                "
+              />
+            </div>
+            <button
+              class="logged-in"
+              style="
+                margin-top: 0.5rem;
+                padding: 0.5rem 2rem;
+                border-radius: 0.5rem;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+              "
+            >
+              Add Link
+            </button>
+            <hr />
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#about_me">About Me</a></li>
+            <li><a href="#my_services">My Services</a></li>
+            <li><a href="#my_references">My References</a></li>
+            <li><a href="#contact_me">Contact Me</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Right side -->
+      <section class="right-section">
+        <div id="about_me">
+          <h1>About Me</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            qui, quae adipisci recusandae molestiae placeat modi aliquam fugiat
+            itaque, consequatur accusantium. Nesciunt voluptas numquam
+            perspiciatis qui culpa. Itaque omnis iure accusamus repellendus
+            aliquid nobis praesentium error. Molestiae magni voluptates
+            similique. A mollitia maiores tenetur iure nobis possimus, ipsam
+            consequatur unde?
+          </p>
+          <div class="logged-in">
+            <input
+              type="text"
+              style="height: 10rem; width: 100%; border-radius: 0.5rem"
+            />
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Update About Me
+            </button>
+          </div>
+        </div>
+
+        <div id="my_services" class="mt">
+          <h1>My Services</h1>
+          <ol>
+            <li>
+              Service 1
+              <button class="delete-button logged-in">delete</button>
+            </li>
+            <li>
+              Service 2
+              <button class="delete-button logged-in">delete</button>
+            </li>
+            <li>
+              Service n
+              <button class="delete-button logged-in">delete</button>
+            </li>
+          </ol>
+          <div class="logged-in">
+            <input
+              type="text"
+              style="width: 100%; border-radius: 0.5rem; height: 2.5rem"
+            />
+
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Add Service
+            </button>
+          </div>
+        </div>
+
+        <div id="my_references" class="mt">
+          <h1>My References</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
+            sequi.
+          </p>
+          <ul class="reference-list">
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Denis
+                </p>
+
+                <button class="delete-button logged-in">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Alfred
+                </p>
+
+                <button class="delete-button logged-in">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Erick
+                </p>
+
+                <button class="delete-button logged-in">delete</button>
+              </div>
+            </li>
+
+            <li>
+              <div class="reference-div">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Placeat quia minima aperiam ipsum magnam voluptas!
+                </p>
+                <p
+                  style="
+                    justify-content: end;
+                    position: relative;
+                    display: flex;
+                  "
+                >
+                  - Victor
+                </p>
+
+                <button class="delete-button logged-in">delete</button>
+              </div>
+            </li>
+          </ul>
+          <div class="logged-in">
+            <input
+              type="text"
+              style="height: 10rem; width: 100%; border-radius: 0.5rem"
+              placeholder="text"
+            />
+            <input
+              type="text"
+              placeholder="referee name"
+              name=""
+              id=""
+              style="
+                width: 100%;
+                border-radius: 0.5rem;
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+              "
+            />
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Add Reference
+            </button>
+          </div>
+        </div>
+
+        <div id="contact_me" class="mt">
+          <h1>Contact Me</h1>
+          <p>Let’s connect! I’m open to your ideas, feedback, and support.</p>
+          <ol>
+            <li>
+              <a href="mailto:tabitha.iregi@students.dkut.ac.ke"
+                >email@students.dkut.ac.ke</a
+              >
+            </li>
+            <li><a href="tel:+\254700000000">+254 700 000 000</a></li>
+            <li>
+              <a href="https://wa.me/+254700000000" target="_blank"
+                >WhatsApp Me</a
+              >
+            </li>
+            <li>
+              <a href="https://x.com/@tabby_codes" target="_blank"
+                >Join My Accountability Group</a
+              >
+            </li>
+          </ol>
+
+          <div class="logged-in">
+            <input
+              type="text"
+              placeholder="contact"
+              name=""
+              id=""
+              style="
+                width: 100%;
+                border-radius: 0.5rem;
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+              "
+            />
+            <button
+              style="
+                width: 100%;
+                background-color: green;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                color: white;
+                height: 2rem;
+              "
+            >
+              Add Contact
+            </button>
+          </div>
+        </div>
+
+        <br /><br />
+        <p style="text-align: center; font-size: 1.5rem">
+          <strong>Something Else That Should Be In Bold</strong>
+        </p>
+      </section>
+    </main>
+    <script src="./assets//js/index.js"></script>
+  </body>
+</html>
