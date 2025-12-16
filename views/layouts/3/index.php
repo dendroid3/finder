@@ -8,13 +8,13 @@ if (str_starts_with($uri, '@')) {
 
   // Simple validation
   if ($username !== '') {
-    echo "Profile page for: " . htmlspecialchars($username);
+    // echo "Profile page for: " . htmlspecialchars($username);
 
   }
 } else {
 
   // Fallback route
-  echo "404 Not Found";
+  // echo "404 Not Found";
 }
 ?>
 
@@ -25,7 +25,7 @@ if (str_starts_with($uri, '@')) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finder</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="<?= 'resources/layouts/3/css/styles.css' ?>" />
 
   <style>
     h1,
@@ -84,19 +84,19 @@ if (str_starts_with($uri, '@')) {
       <h2>Templates</h2>
       <div class="image-grid">
         <a href="./templates/1/index.html">
-          <img src="./templates/1/assets/preview.png" alt="Template 1" />
+          <img src="./resources/previews/1.png" alt="Template 1" />
         </a>
         <a href="./portfolio2/index.html">
-          <img src="./templates/2/assets/preview.png" alt="Template 2" />
+          <img src="./resources/previews/2.png" alt="Template 2" />
         </a>
         <a href="./templates/3/index.html">
-          <img src="./templates/3/assets/preview.png" alt="Template 3" />
+          <img src="./resources/previews/3.png" alt="Template 3" />
         </a>
         <a href="./portfolio4/index.html">
-          <img src="./templates/4/assets/preview.png" alt="Template 4" />
+          <img src="./resources/previews/4.png" alt="Template 4" />
         </a>
         <a href="./portfolio5/index.html">
-          <img src="./templates/5/assets/preview.png" alt="Template 5" />
+          <img src="./resources/previews/5.png" alt="Template 5" />
         </a>
       </div>
     </aside>

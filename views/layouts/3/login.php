@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./resources/css/styles.css" />
   </head>
-  <body>
-    <?php include __DIR__ . '/components/nav.php'; ?>
+  <body>  
+    <link rel="stylesheet" href="<?= 'resources/layouts/3/css/styles.css' ?>" />
+  <?php include __DIR__ . '/components/nav.php'; ?>
     <main>
       <h1>User login</h1>
       <div
