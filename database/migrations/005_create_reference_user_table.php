@@ -1,13 +1,14 @@
  <?php
 
 return "
-DROP TABLE IF EXISTS platforms;
+DROP TABLE IF EXISTS reference_user;
 
-CREATE TABLE platforms (
+CREATE TABLE reference_user (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 
-    name VARCHAR(150) NOT NULL UNIQUE,
-    url VARCHAR(50) NOT NULL UNIQUE,
+    user_id INT UNSIGNED NOT NULL,
+    description VARCHAR(150) NOT NULL,
+    referee VARCHAR(50) NOT NULL,
     
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP 

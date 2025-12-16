@@ -8,6 +8,7 @@ CREATE TABLE users (
 
     name VARCHAR(150) NOT NULL,
     code VARCHAR(50) NOT NULL UNIQUE,
+    about LONGTEXT NULL,
 
     phone_number VARCHAR(30) NULL,
     email VARCHAR(150) NULL,

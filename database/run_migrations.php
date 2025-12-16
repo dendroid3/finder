@@ -1,6 +1,6 @@
 <?php
-$database_name = "";
-$database_user = "";
+$database_name = "finder";
+$database_user = "root";
 $database_password = "";
 $pdo = new PDO(
     "mysql:host=localhost;dbname=$database_name;charset=utf8mb4",
@@ -12,7 +12,6 @@ $pdo = new PDO(
 );
 
 $migrations = glob(__DIR__ . '/migrations/*.php');
-sort($migration);
 
 foreach ($migrations as $migration) {
     echo "Running: " . basename($migration) . PHP_EOL;
