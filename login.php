@@ -7,18 +7,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="nav-div">
-      <h1 class="logo">Welcome to Group 20's Project</h1>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="/">Home</a></li>
-          <li><a href="register.html">Register</a></li>
-          <li><a href="/#about">About Us</a></li>
-          <li><a href="/#my_services">Services</a></li>
-          <li><a href="/#contact_me">Contact Us</a></li>
-        </ul>
-      </nav>
-    </div>
+    <?php include __DIR__ . '/components/nav.php'; ?>
     <main>
       <h1>User login</h1>
       <div

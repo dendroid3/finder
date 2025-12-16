@@ -1,3 +1,6 @@
+<?php
+// register.php
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,47 +10,35 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="nav-div">
-      <h1 class="logo">Welcome to Group 20's Project</h1>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="/">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </nav>
-    </div>
+    <?php include __DIR__ . '/components/nav.php'; ?>
     <main>
       <h1>User registration</h1>
+
       <div
-        class=""
         style="
-          background-color: ;
           display: flex;
           justify-content: center;
           height: 105vh;
         "
       >
-        <form action="./submit" method="POST">
+        <form action="./submit" method="POST" enctype="multipart/form-data">
+          
           <div class="input-div">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" title="name" required />
+            <input type="text" id="name" name="name" required />
           </div>
 
           <div class="input-div">
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" title="email" required />
+            <input type="email" id="email" name="email" required />
           </div>
 
           <div class="input-div">
-            <label for="phone_number">Phone Number:</label>
+            <label for="phone">Phone Number:</label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              title="Enter phone number in its proper format. It should ideally be like: 07XXXXXXXX"
               pattern="[0-9]{10}"
               required
             />
@@ -66,7 +57,7 @@
 
           <div class="input-div">
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="don" name="dob" required />
+            <input type="date" id="dob" name="dob" required />
           </div>
 
           <div class="input-div">
@@ -79,16 +70,19 @@
           </div>
 
           <div class="input-div">
-            <label for="profilePic">Profile Picture:</label>
+            <label>Profile Picture:</label>
+
             <input
-              style="display: none"
               type="file"
               id="profilePic"
               name="profilePic"
               accept="image/*"
+              style="display: none"
               required
             />
+
             <div
+              id="profileImageSelection"
               style="
                 height: 3rem;
                 border-radius: 0.5rem;
@@ -96,22 +90,23 @@
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                padding-left: 0.25rem;
+                padding-left: 0.5rem;
               "
-              id="profileImageSelection"
             >
               Select Profile Picture
             </div>
           </div>
 
           <button class="submit-button" type="submit">Register</button>
-          <button class="submit-button">Login</button>
+          <button class="submit-button" type="button">Login</button>
         </form>
       </div>
     </main>
+
     <footer>
       <p>Contact us at info@email.com</p>
     </footer>
+
     <script src="./index.js"></script>
   </body>
 </html>

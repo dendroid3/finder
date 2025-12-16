@@ -1,0 +1,276 @@
+:root {
+  --main-bg: #cd7143;
+  --secondary-bg: #f4cb9f;
+  --text-color: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--main-bg);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 2rem;
+  justify-content: center;
+}
+.views-counter {
+  position: fixed;
+  right: 2.5rem;
+  top: 2.5rem;
+  background-color: red;
+  padding: 2rem;
+  border-radius: 50%;
+  font-size: 2rem;
+}
+
+.link-and-template-selector {
+  position: fixed;
+  left: 2.5rem;
+  top: 2.5rem;
+  background-color: red;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.link-and-template-selector-link {
+  background-color: grey;
+  padding: 0.25rem;
+}
+
+.link-and-template-selector-template {
+  background-color: grey;
+  margin-top: 0.5rem;
+  display: flex;
+  width: 10rem;
+}
+
+.logout-button-div {
+  position: fixed;
+  left: 2.5rem;
+  bottom: 2.5rem;
+  background-color: red;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.logged-in {
+    display: none ;
+}
+
+.mt {
+  margin-top: 1.25rem;
+}
+/* Left Section */
+.left-section {
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.image-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.link-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 0.75rem;
+}
+
+th {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.link-link {
+  align-items: center;
+  display: flex;
+  color: white;
+}
+
+.reference-div {
+  background-color: #cd7143;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.75rem;
+}
+
+.reference-list {
+  list-style: none;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0.75rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+nav ul li {
+  background-color: pink;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li:hover {
+  background-color: #ffe3e3;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1 1 400px;
+  max-width: 700px;
+  background-color: var(--secondary-bg);
+  color: #000;
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 4rem);
+}
+
+.right-section h1,
+.right-section h2 {
+  text-decoration: underline;
+}
+
+ol {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+#my_projects ol li {
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #004aad;
+  text-decoration: underline;
+}
+
+.right-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-section::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.right-section::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.delete-button {
+  margin-left: 0.5rem;
+  border-radius: 0.2rem;
+  border: 1px red solid;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .right-section {
+    max-height: none;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+
+  nav ul li {
+    margin: 0.25rem 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .right-section {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
