@@ -10,8 +10,8 @@ CREATE TABLE users (
     code VARCHAR(50) NOT NULL UNIQUE,
     about LONGTEXT NULL,
 
-    phone_number VARCHAR(30) NULL,
-    email VARCHAR(150) NULL,
+    phone_number VARCHAR(30) NULL UNIQUE,
+    email VARCHAR(150) NULL UNIQUE,
 
     title VARCHAR(100) NULL,
     subtitle VARCHAR(150) NULL,
@@ -19,6 +19,8 @@ CREATE TABLE users (
     profile_picture_url VARCHAR(255) NULL,
 
     template_id INT UNSIGNED DEFAULT 3,
+
+    password VARCHAR(255) NOT NULL,
 
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP 

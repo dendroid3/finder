@@ -7,7 +7,6 @@
           <li><a href="register">Register</a></li>
           <li><a href="login">Login</a></li>
           <li><a href="/#about">About Us</a></li>
-          
           <li><a href="/#my_services">Services</a></li>
           <li><a href="/#contact_me">Contact Us</a></li>
         </ul>

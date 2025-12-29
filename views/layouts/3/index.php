@@ -55,7 +55,7 @@ if (str_starts_with($uri, '@')) {
       <article>
         <h2>About Our Project</h2>
         <p>
-          Our class project is a portfolio builder application designed to
+          Our class project is a Finder application designed to
           help users create professional, visually appealing portfolios with
           ease. The platform features five unique templates, each designed
           and contributed by a different group member, ensuring diversity in
@@ -74,7 +74,7 @@ if (str_starts_with($uri, '@')) {
           platform, the project demonstrates teamwork, design variation, and
           practical application of web development concepts such as responsive
           design, modular components, and user-centered design. Overall, the
-          portfolio builder highlights how collaborative development can
+          Finder highlights how collaborative development can
           produce a flexible tool that meets diverse user needs while
           maintaining a consistent and professional standard.
         </p>
@@ -101,9 +101,9 @@ if (str_starts_with($uri, '@')) {
       </div>
     </aside>
     <section>
-      <h1>How to Use the Portfolio Builder</h1>
+      <h1>How to Use the Finder</h1>
       <p>
-        The portfolio builder allows you to create a professional online
+        The Finder allows you to create a professional online
         portfolio quickly and easily using one of our pre-designed templates.
       </p>
 

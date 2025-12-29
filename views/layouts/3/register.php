@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Builder</title>
+    <title>Finder</title>
     <link rel="stylesheet" href="<?= 'resources/layouts/3/css/styles.css' ?>" />
   </head>
   <body>    
@@ -21,7 +21,7 @@
           height: 105vh;
         "
       >
-        <form action="./submit" method="POST" enctype="multipart/form-data">
+        <form action="./register" method="POST" enctype="multipart/form-data">
           
           <div class="input-div">
             <label for="name">Name:</label>
@@ -34,11 +34,11 @@
           </div>
 
           <div class="input-div">
-            <label for="phone">Phone Number:</label>
+            <label for="phone_number">Phone Number:</label>
             <input
               type="tel"
-              id="phone"
-              name="phone"
+              id="phone_number"
+              name="phone_number"
               pattern="[0-9]{10}"
               required
             />
