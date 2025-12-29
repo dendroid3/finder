@@ -10,8 +10,8 @@ CREATE TABLE users (
     code VARCHAR(50) NOT NULL UNIQUE,
     about LONGTEXT NULL,
 
-    phone_number VARCHAR(30) NULL,
-    email VARCHAR(150) NULL,
+    phone_number VARCHAR(30) NULL UNIQUE,
+    email VARCHAR(150) NULL UNIQUE,
 
     title VARCHAR(100) NULL,
     subtitle VARCHAR(150) NULL,
