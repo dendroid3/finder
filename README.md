@@ -25,12 +25,12 @@ The five sections are:
 ### Views Directory
 This directory has the pages that the user will see.
 In the directory we have 
-    #### layouts directory
+    ### layouts directory
         This directory contains the, guess... LAYOUTS!
         In this directory, each member should create the following .php pages in their respective directories:
             - register.php -> the form's action should be '/register'
             - login.php -> the form's action should be '/login'
-    #### templates directory
+    ### templates directory
         This directory contains the templates that we already created. 
         Just add your file to your respective directory.
         I have already created the directories already.
