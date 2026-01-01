@@ -1,7 +1,7 @@
 <?php
 $database_name = "finder";
 $database_user = "root";
-$database_password = "";
+$database_password = "password";
 $pdo = new PDO(
     "mysql:host=localhost;dbname=$database_name;charset=utf8mb4",
     $database_user,
