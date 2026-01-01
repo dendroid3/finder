@@ -26,41 +26,47 @@ class Router {
     }
 
     /**
-     * Dispatch the route
+     * Dispatch the request
      */
     public function dispatch($uri, $method) {
-        // Remove query string from URI
         $uri = parse_url($uri, PHP_URL_PATH);
+        $method = strtoupper($method);
 
-        if (isset($this->routes[$method][$uri])) {
-            $this->callAction($this->routes[$method][$uri]);
+        if (!isset($this->routes[$method])) {
+            $this->handleFallback($uri);
             return;
         }
 
-        // If no route found, check fallback
-        if ($this->fallback) {
-            $this->callAction($this->fallback);
-            return;
+        // Loop through all routes for this method
+        foreach ($this->routes[$method] as $route => $action) {
+            $pattern = preg_replace('#\{[\w]+\}#', '([\w-]+)', $route);
+            $pattern = "#^$pattern$#";
+
+            if (preg_match($pattern, $uri, $matches)) {
+                array_shift($matches); // Remove full match
+                $this->callAction($action, $matches);
+                return;
+            }
         }
 
-        // No route and no fallback → 404
-        http_response_code(404);
-        echo "Route not found: $uri";
+        // No match → fallback
+        $this->handleFallback($uri);
     }
 
     /**
-     * Call a route action (closure or controller)
+     * Call route action with optional parameters
      */
-    protected function callAction($action) {
+    protected function callAction($action, $params = []) {
         if (is_callable($action)) {
-            call_user_func($action);
+            call_user_func_array($action, $params);
             return;
         }
 
         if (is_string($action)) {
             [$controller, $method] = explode('@', $action);
 
-            $file = __DIR__ . '/../controllers/' . $controller . '.php';
+            $file = __DIR__ . '/../controllers/' . str_replace('\\', '/', $controller) . '.php';
+
             if (!file_exists($file)) {
                 die("Controller file $file not found!");
             }
@@ -76,8 +82,21 @@ class Router {
                 die("Method $method not found in $fullController");
             }
 
-            $obj->$method();
+            // Call method with dynamic parameters
+            call_user_func_array([$obj, $method], $params);
             return;
+        }
+    }
+
+    /**
+     * Handle fallback route
+     */
+    protected function handleFallback($uri) {
+        if ($this->fallback) {
+            $this->callAction($this->fallback);
+        } else {
+            http_response_code(404);
+            echo "Route not found: $uri";
         }
     }
 }

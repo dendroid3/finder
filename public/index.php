@@ -7,5 +7,5 @@ $app = new App();
 
 // Now include routes, $app exists
 require_once __DIR__ . '/../routes/web.php';
-
+require_once __DIR__ . '/../routes/api.php';
 $app->run();
