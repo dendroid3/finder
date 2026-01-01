@@ -56,11 +56,6 @@
           </div>
 
           <div class="input-div">
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required />
-          </div>
-
-          <div class="input-div">
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
               <option value="male">Male</option>
