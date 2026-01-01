@@ -20,7 +20,7 @@
           height: 75vh;
         "
       >
-        <form action="./submit" method="POST">
+        <form action="login" method="POST">
           <div class="input-div">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" title="email" required />
