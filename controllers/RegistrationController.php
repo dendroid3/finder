@@ -1,12 +1,14 @@
 <?php
 namespace Controllers;
 
-class RegistrationController {
-    public function create() {
+class RegistrationController
+{
+    public function create()
+    {
         $message = "Welcome to my PHP MVC!";
         require_once __DIR__ . '/../views/register.php';
     }
-    
+
     public function store()
     {
         // Example: Get POST data (sanitize as needed)
@@ -15,15 +17,43 @@ class RegistrationController {
         $email = $_POST['email'] ?? '';
         $title = $_POST['title'] ?? '';
         $subtitle = $_POST['subtitle'] ?? '';
-        $profile_picture_url = $_POST['profile_picture_url'] ?? '';
         $password = $_POST['password'] ?? '';
 
         // Hash the password securely
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        
+
+        if (!isset($_FILES['profilePic'])) {
+            die("No file uploaded");
+        }
+
+        $uploadDir = __DIR__ . '/../storage/profile_pictures/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        $file = $_FILES['profilePic'];
+
+        // Validate image
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!in_array($file['type'], $allowedTypes)) {
+            die("Invalid image type");
+        }
+
+        // Generate safe filename
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('img_', true) . '.' . $extension;
+
+        $destination = $uploadDir . $filename;
+
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
+            echo "Image saved successfully: " . $filename;
+        } else {
+            echo "Failed to save image";
+        }
+
         try {
             // 1. Connect to the database (adjust credentials)
-            $pdo = new \PDO('mysql:host=localhost;dbname=finder', 'root', '');
+            $pdo = new \PDO('mysql:host=localhost;dbname=finder', 'root', 'password');
             // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $pdo->prepare("
                 INSERT INTO users 
@@ -34,16 +64,16 @@ class RegistrationController {
 
             $stmt->execute([
                 ':name' => $name,
-                ':code' => strtoupper($this -> generateRandomString()),
+                ':code' => strtoupper($this->generateRandomString()),
                 ':phone_number' => $phone_number,
                 ':email' => $email,
                 ':title' => $title,
                 ':subtitle' => $subtitle,
-                ':profile_picture_url' => $profile_picture_url,
+                ':profile_picture_url' => $filename,
                 ':password' => $hashedPassword
             ]);
 
-            header('Location: /public/login');
+            // header('Location: /login');
             exit;
 
         } catch (PDOException $e) {
@@ -51,7 +81,8 @@ class RegistrationController {
         }
     }
 
-    public function generateRandomString($length = 10) {
+    public function generateRandomString($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
