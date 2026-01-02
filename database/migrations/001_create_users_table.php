@@ -1,7 +1,6 @@
 <?php
 
-return "
-DROP TABLE IF EXISTS users;
+return "DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

@@ -13,12 +13,12 @@ $pdo = new PDO(
     ]
 );
 
-$migrations = glob(__DIR__ . '/migrations/*.php');
+$seeders = glob(__DIR__ . '/seeders/*.php');
 
-foreach ($migrations as $migration) {
-    echo "Running: " . basename($migration) . PHP_EOL;
-    $sql = require $migration;
+foreach ($seeders as $seed) {
+    echo "Running: " . basename($seed) . PHP_EOL;
+    $sql = require $seed;
     $pdo->exec($sql);
 }
 
-echo "Migrations completed.\n";
+echo "Seeding completed.\n";
