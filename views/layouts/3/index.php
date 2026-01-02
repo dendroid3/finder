@@ -1,22 +1,3 @@
-<?php
-
-$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-
-// Match routes starting with @
-if (str_starts_with($uri, '@')) {
-  $username = substr($uri, 1);
-
-  // Simple validation
-  if ($username !== '') {
-    // echo "Profile page for: " . htmlspecialchars($username);
-
-  }
-} else {
-
-  // Fallback route
-  // echo "404 Not Found";
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">

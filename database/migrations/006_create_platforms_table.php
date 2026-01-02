@@ -1,0 +1,13 @@
+<?php
+
+return "
+DROP TABLE IF EXISTS platforms;
+
+CREATE TABLE platforms (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    title VARCHAR(150) NOT NULL,
+    url VARCHAR(50) NOT NULL UNIQUE,
+    icon_url VARCHAR(50) NOT NULL UNIQUE
+);
+";
