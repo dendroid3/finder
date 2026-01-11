@@ -253,16 +253,9 @@
         <h1>Contact Me</h1>
         <p>Let’s connect! I’m open to your ideas, feedback, and support.</p>
         <ol>
-          <li>
-            <a href="mailto:tabitha.iregi@students.dkut.ac.ke">email@students.dkut.ac.ke</a>
-          </li>
-          <li><a href="tel:+\254700000000">+254 700 000 000</a></li>
-          <li>
-            <a href="https://wa.me/+254700000000" target="_blank">WhatsApp Me</a>
-          </li>
-          <li>
-            <a href="https://x.com/@tabby_codes" target="_blank">Join My Accountability Group</a>
-          </li>
+          <li id="email"></li>
+          <li id="phone_number"></li>
+          <li id="whatsapp"></li>
         </ol>
 
         <div class="logged-in">

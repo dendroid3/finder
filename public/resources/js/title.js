@@ -37,8 +37,23 @@ const fetchTitle = function () {
 
       const templateIDElement = document.getElementById("current_template_id");
 
-      if(templateIDElement) {
-        templateIDElement.innerHTML=data.template_id
+      if (templateIDElement) {
+        templateIDElement.innerHTML = data.template_id;
+      }
+
+      const phoneElement = document.getElementById("phone_number");
+      if (phoneElement) {
+        phoneElement.innerHTML = `<a href="tel:+254${data.phone_number}">+254${data.phone_number}</a>`;
+      }
+
+      const emailElement = document.getElementById("email");
+      if (emailElement) {
+        emailElement.innerHTML = `<a href="mailto:${data.email}">${data.email}</a>`;
+      }
+
+      const whatsAppElement = document.getElementById("whatsapp");
+      if (whatsAppElement) {
+        whatsAppElement.innerHTML = `<a href="https://wa.me/+254${data.phone_number}" target="_blank">WhatsApp Me</a>`;
       }
     })
     .catch((error) => {
