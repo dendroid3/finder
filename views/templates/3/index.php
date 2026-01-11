@@ -117,9 +117,7 @@
             </button>
           </div>
         </div>
-        <!-- <h3>Something Else That Should Be In Bold</h3> -->
         <hr />
-
         <div>
           <table id="links_table">
           </table>
@@ -281,9 +279,7 @@
       </div>
 
       <br /><br />
-      <p style="text-align: center; font-size: 1.5rem">
-        <strong>Something Else That Should Be In Bold</strong>
-      </p>
+     
     </section>
   </main>
   <script src="resources/templates/3/js/index.js"></script>
