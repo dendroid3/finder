@@ -13,7 +13,7 @@ $pdo = new PDO(
     ]
 );
 
-$migrations = glob(__DIR__ . '/migrations/*.php');
+$migrations = glob(__DIR__ . '/../database/migrations/*.php');
 
 foreach ($migrations as $migration) {
     echo "Running: " . basename($migration) . PHP_EOL;

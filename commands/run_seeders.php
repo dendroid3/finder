@@ -13,7 +13,7 @@ $pdo = new PDO(
     ]
 );
 
-$seeders = glob(__DIR__ . '/seeders/*.php');
+$seeders = glob(__DIR__ . '/../database/seeders/*.php');
 
 foreach ($seeders as $seed) {
     echo "Running: " . basename($seed) . PHP_EOL;
