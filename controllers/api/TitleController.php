@@ -12,7 +12,7 @@ class TitleController
             throw new \Exception("User code missing");
         }
 
-        $stmt = $pdo->prepare("SELECT title, name, profile_picture_url, template_id FROM users WHERE code = ?");
+        $stmt = $pdo->prepare("SELECT title, name, profile_picture_url, template_id, phone_number, email FROM users WHERE code = ?");
         $stmt->execute([$user_code]);
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
