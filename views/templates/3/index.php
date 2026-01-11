@@ -22,17 +22,58 @@
       }
     </style>`; <?php
   } ?>
+
+  <style>
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .radio-group label {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tini-tiny {
+      font-size: 1.2rem;
+    }
+  </style>
+
 </head>
 
 <body>
   <main>
-    <div class="views-counter logged-in">34</div>
+    <div class="views-counter logged-in" id="current_template_id"></div>
 
     <div class="link-and-template-selector logged-in">
-      <div class="link-and-template-selector-link">
-        https://finder.top/portfolio/username
+      <div class="link-and-template-selector-link" id="portfolio_link" style="cursor: pointer;">
       </div>
-      <div class="link-and-template-selector-template">Change Template</div>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="rating" value="1"> <span class="tini-tiny">1</span>
+        </label>
+
+        <label>
+          <input type="radio" name="rating" value="2"> <span class="tini-tiny">2</span>
+        </label>
+
+        <label>
+          <input type="radio" name="rating" value="3"> <span class="tini-tiny">3</span>
+        </label>
+
+        <label>
+          <input type="radio" name="rating" value="4"> <span class="tini-tiny">4</span>
+        </label>
+
+        <label>
+          <input type="radio" name="rating" value="5"> <span class="tini-tiny">5</span>
+        </label>
+
+        <button style="cursor: pointer; padding: 0.25rem; border-radius: 5px;"
+          onclick="updateTemplate()">change</button>
+      </div>
+
     </div>
 
     <div>
@@ -259,6 +300,64 @@
   <script src="resources/js/title.js"></script>
   <script src="resources/js/references.js"></script>
   <script src="resources/js/services.js"></script>
+  <script>
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+    const user_code = pathParts[pathParts.length - 1];
+
+    const portfolioUrl = `${window.location.protocol}//${window.location.host}/${user_code}`
+    document.getElementById('portfolio_link').innerHTML = portfolioUrl
+
+
+    document.getElementById('portfolio_link').addEventListener("click", function () {
+      navigator.clipboard.writeText(portfolioUrl)
+        .then(() => {
+          alert("Copied to clipboard");
+        })
+        .catch(err => {
+          console.error("Failed to copy:", err);
+        });
+    })
+
+    function updateTemplate() {
+
+      const selected = document.querySelector('input[name="rating"]:checked');
+
+      if (!selected) {
+        alert("Please select a template.");
+        return;
+      }
+
+      if(!confirm(`You are about to change to template ${selected.value}.\nAre you sure about that?\nProceed?`)) return;
+      const template_id = selected.value;
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+      const user_code = pathParts[pathParts.length - 1];
+
+      fetch('/api/templates', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          template_id: template_id,
+          user_code: user_code
+        })
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to update template');
+          return res.json();
+        })
+        .then(data => {
+          alert(`Template updated. Visitors to you portfolio will be seing template ${template_id}`);
+          fetchTitle()
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+
+
+
+  </script>
 </body>
 
 </html>

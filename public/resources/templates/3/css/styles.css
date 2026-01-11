@@ -43,7 +43,7 @@ main {
   background-color: red;
   padding: 0.5rem 2rem;
   border-radius: 0.5rem;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .link-and-template-selector-link {

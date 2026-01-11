@@ -46,9 +46,9 @@ class RegistrationController
         $destination = $uploadDir . $filename;
 
         if (move_uploaded_file($file['tmp_name'], $destination)) {
-            echo "Image saved successfully: " . $filename;
+            // echo "Image saved successfully: " . $filename;
         } else {
-            echo "Failed to save image";
+            // echo "Failed to save image";
         }
 
         try {

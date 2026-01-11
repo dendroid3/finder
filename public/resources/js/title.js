@@ -19,6 +19,11 @@ const fetchTitle = function () {
         titleElement.innerHTML = data.title || "Title Goes Here.";
       }
 
+      const logoElement = document.getElementById("logo");
+      if (logoElement) {
+        logoElement.innerHTML = data.name || "Name Goes Here.";
+      }
+
       const nameElement = document.getElementById("name_text");
       if (nameElement) {
         nameElement.innerHTML = data.name || "Name Goes Here.";
@@ -28,6 +33,12 @@ const fetchTitle = function () {
 
       if (imageElement && data.profile_picture_url) {
         imageElement.src = `profile_pictures/${data.profile_picture_url}`; // ✅ update image
+      }
+
+      const templateIDElement = document.getElementById("current_template_id");
+
+      if(templateIDElement) {
+        templateIDElement.innerHTML=data.template_id
       }
     })
     .catch((error) => {
