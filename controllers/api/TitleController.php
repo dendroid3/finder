@@ -1,7 +1,7 @@
 <?php
 namespace Controllers\api;
 
-class AboutController
+class TitleController
 {
     public function get()
     {
@@ -12,7 +12,7 @@ class AboutController
             throw new \Exception("User code missing");
         }
 
-        $stmt = $pdo->prepare("SELECT about FROM users WHERE code = ?");
+        $stmt = $pdo->prepare("SELECT title, name, profile_picture_url FROM users WHERE code = ?");
         $stmt->execute([$user_code]);
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -46,19 +46,19 @@ class AboutController
         $input = json_decode(file_get_contents('php://input'), true);
 
         $user_code = $input['user_code'] ?? null;
-        $about = $input['about'] ?? null;
+        $title = $input['title'] ?? null;
 
-        if (!$about) {
+        if (!$title) {
             http_response_code(400);
-            echo json_encode(['error' => 'user_code or about missing']);
+            echo json_encode(['error' => 'user_code or title missing']);
             return;
         }
 
         $stmt = $pdo->prepare(
-            "UPDATE users SET about = ? WHERE code = ?"
+            "UPDATE users SET title = ? WHERE code = ?"
         );
 
-        $stmt->execute([$about, $user_code]);
+        $stmt->execute([$title, $user_code]);
 
         if ($stmt->rowCount() === 0) {
             http_response_code(404);
@@ -69,7 +69,7 @@ class AboutController
         header('Content-Type: application/json');
         echo json_encode([
             'success' => true,
-            'message' => 'About updated successfully'
+            'message' => 'Title updated successfully'
         ]);
     }
 
@@ -101,21 +101,21 @@ class AboutController
         }
 
         $stmt = $pdo->prepare(
-            "UPDATE users SET about = NULL WHERE code = ?"
+            "UPDATE users SET title = NULL WHERE code = ?"
         );
 
         $stmt->execute([$user_code]);
 
         if ($stmt->rowCount() === 0) {
             http_response_code(404);
-            echo json_encode(['error' => 'User not found or about already empty']);
+            echo json_encode(['error' => 'User not found or title already empty']);
             return;
         }
 
         header('Content-Type: application/json');
         echo json_encode([
             'success' => true,
-            'message' => 'About deleted successfully'
+            'message' => 'Title deleted successfully'
         ]);
     }
 

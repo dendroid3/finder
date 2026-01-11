@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Template 4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="<?= 'resources/layouts/3/css/styles.css' ?>" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 
+  <meta name="template" content="3">
   <link rel="stylesheet" href="resources/templates/3/css/styles.css" />
 
   <?php
   if (isset($_SESSION['user_id'])) {
     ?>
+    <title>Admin</title>
     <style>
       .logged-in {
         display: block;
@@ -34,10 +35,15 @@
       <div class="link-and-template-selector-template">Change Template</div>
     </div>
 
-    <div class="logout-button-div logged-in">Logout</div>
+    <div>
+      <form action="logout" method="post">
+        <button class="logout-button-div logged-in" type="submit">Logout</button>
+      </form>
+    </div>
+
     <!-- Left side -->
     <section class="left-section">
-      <div class="image-div">
+      <div class="profile_image">
         <img src="resources/templates/3/profile_image.png" alt="Profile Image" />
       </div>
       <input type="file" id="profilePic" name="profilePic" accept="image/*" style="display: none" required />
@@ -52,85 +58,43 @@
       </button>
 
       <div id="profile-section">
-        <h1>Name Goes Here</h1>
-        <h4>Quick One-Liner Bio</h4>
-        <h3>Something Else That Should Be In Bold</h3>
+        <h1 id="name_text"></h1>
+        <h4 id="title_text"></h4>
+        <div class="logged-in">
+          <div>
+            <input type="text" style="width: 20rem; padding: 0.75rem;" id="title_input" placeholder="quick pitch">
+          </div>
+          <div>
+            <button style="
+            padding: 0.5rem 2rem;
+            border-radius: 0.5rem;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+          " id="update_title_button">
+              Change
+            </button>
+          </div>
+        </div>
+        <!-- <h3>Something Else That Should Be In Bold</h3> -->
         <hr />
 
         <div>
-          <table>
-            <tr>
-              <th>
-                <a href="https://facebook.com" class="link-link" target="_blank">
-                  <img src="resources/templates/3/link_icons/facebook.png" alt="Facebook" class="link-icon" />
-                  <div>facebook.com/</div>
-                  username
-                </a>
-                <button class="delete-button logged-in">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <a href="https://instagram.com" class="link-link" target="_blank">
-                  <img src="resources/templates/3/link_icons/instagram.png" alt="Instagram" class="link-icon" />
-                  <div>instagram.com/</div>
-                  username
-                </a>
-
-                <button class="delete-button logged-in">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <a href="https://onlyfans.com" class="link-link" target="_blank">
-                  <img src="resources/templates/3/link_icons/OF.jpeg" alt="OnlyFans" class="link-icon" />
-                  <div>onlyfans.com/</div>
-                  username
-                </a>
-
-                <button class="delete-button logged-in">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <a href="https://youtube.com" class="link-link" target="_blank">
-                  <img src="resources/templates/3/link_icons/youtube.png" alt="Youtube" class="link-icon" />
-                  <div>youtube.com/@</div>
-                  username
-                </a>
-
-                <button class="delete-button logged-in">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <a href="https://x.com" class="link-link" target="_blank">
-                  <img src="resources/templates/3/link_icons/twitter.png" alt="X" class="link-icon" />
-                  <div>x.com/</div>
-                  username
-                </a>
-
-                <button class="delete-button logged-in">delete</button>
-              </th>
-            </tr>
+          <table id="links_table">
           </table>
           <br />
-          <div class="input-div logged-in">
-            <label for="gender">Platform:</label>
-            <select id="gender" name="gender" required style="height: 2.5rem">
-              <option value="facebook">Facebook</option>
-              <option value="instagram">Instagram</option>
-              <option value="onlyfans">OnlyFans</option>
-              <option value="youtube">Youtube</option>
-              <option value="twitter">X</option>
-            </select>
-            <input type="text" style="
+          <div class="logged-in">
+            <div class="input-div">
+              <!-- <label for="gender">Platform:</label> -->
+              <select name="gender" id="platforms_list" required style="height: 2.5rem">
+              </select>
+              <input type="text" id="username_text" style="
                   border-radius: 0.5rem;
                   height: 2.5rem;
                   padding-left: 0.5rem;
                 " />
-          </div>
-          <button class="logged-in" style="
+            </div>
+            <button id="add_link_button" style="
                 margin-top: 0.5rem;
                 padding: 0.5rem 2rem;
                 border-radius: 0.5rem;
@@ -138,8 +102,9 @@
                 color: white;
                 cursor: pointer;
               ">
-            Add Link
-          </button>
+              Add Links
+            </button>
+          </div>
           <hr />
         </div>
       </div>
@@ -162,14 +127,16 @@
 
         </p>
         <div class="logged-in">
-          <input type="text" style="height: 10rem; width: 100%; border-radius: 0.5rem" />
-          <button style="
+          <textarea id="about_input" type="text"
+            style="height: 10rem; width: 100%; border-radius: 0.5rem; padding: 0.75rem; resize: vertical;"></textarea>
+          <button id="update_about_button" style="
                 width: 100%;
                 background-color: green;
                 border-radius: 0.5rem;
                 margin-top: 0.5rem;
                 color: white;
                 height: 2rem;
+                cursor: pointer;
               ">
             Update About Me
           </button>
@@ -178,30 +145,30 @@
 
       <div id="my_services" class="mt">
         <h1>My Services</h1>
-        <ol>
-          <li>
-            Service 1
-            <button class="delete-button logged-in">delete</button>
-          </li>
-          <li>
-            Service 2
-            <button class="delete-button logged-in">delete</button>
-          </li>
-          <li>
-            Service n
-            <button class="delete-button logged-in">delete</button>
-          </li>
-        </ol>
-        <div class="logged-in">
-          <input type="text" style="width: 100%; border-radius: 0.5rem; height: 2.5rem" />
+        <ul id="service_list" style="list-style: none;">
 
-          <button style="
+        </ul>
+        <div class="logged-in">
+          <input type="text" style="
+                width: 100%;
+                border-radius: 0.5rem;
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                border-radius: 0.5rem;
+                margin-bottom: 0.5rem;
+                margin-top: 1rem;
+              " id="service_title_text" placeholder="service title" />
+          <textarea name="service-description" id="service_description_text"
+            style="height: 10rem; width: 100%; border-radius: 0.5rem; padding: 0.75rem; margin-top: 0.5rem;"
+            placeholder="text"></textarea>
+          <button id="add_service_button" style="
                 width: 100%;
                 background-color: green;
                 border-radius: 0.5rem;
                 margin-top: 0.5rem;
                 color: white;
                 height: 2rem;
+                cursor: pointer;
               ">
             Add Service
           </button>
@@ -211,99 +178,30 @@
       <div id="my_references" class="mt">
         <h1>My References</h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
-          sequi.
+          Couple of things people I've interacted with say about me
         </p>
-        <ul class="reference-list">
-          <li>
-            <div class="reference-div">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat quia minima aperiam ipsum magnam voluptas!
-              </p>
-              <p style="
-                    justify-content: end;
-                    position: relative;
-                    display: flex;
-                  ">
-                - Denis
-              </p>
+        <ul class="reference-list" id="reference_list">
 
-              <button class="delete-button logged-in">delete</button>
-            </div>
-          </li>
-
-          <li>
-            <div class="reference-div">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat quia minima aperiam ipsum magnam voluptas!
-              </p>
-              <p style="
-                    justify-content: end;
-                    position: relative;
-                    display: flex;
-                  ">
-                - Alfred
-              </p>
-
-              <button class="delete-button logged-in">delete</button>
-            </div>
-          </li>
-
-          <li>
-            <div class="reference-div">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat quia minima aperiam ipsum magnam voluptas!
-              </p>
-              <p style="
-                    justify-content: end;
-                    position: relative;
-                    display: flex;
-                  ">
-                - Erick
-              </p>
-
-              <button class="delete-button logged-in">delete</button>
-            </div>
-          </li>
-
-          <li>
-            <div class="reference-div">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Placeat quia minima aperiam ipsum magnam voluptas!
-              </p>
-              <p style="
-                    justify-content: end;
-                    position: relative;
-                    display: flex;
-                  ">
-                - Victor
-              </p>
-
-              <button class="delete-button logged-in">delete</button>
-            </div>
-          </li>
         </ul>
         <div class="logged-in">
-          <input type="text" style="height: 10rem; width: 100%; border-radius: 0.5rem" placeholder="text" />
-          <input type="text" placeholder="referee name" name="" id="" style="
+          <input type="text" placeholder="referee name" name="" id="referee_name" style="
                 width: 100%;
                 border-radius: 0.5rem;
                 height: 2.5rem;
                 padding-left: 0.5rem;
                 border-radius: 0.5rem;
-                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
               " />
-          <button style="
+          <textarea type="text" id="reference_description_text"
+            style="height: 10rem; width: 100%; border-radius: 0.5rem; padding: 0.75rem;" placeholder="text"></textarea>
+          <button id="add_reference_button" style="
                 width: 100%;
                 background-color: green;
                 border-radius: 0.5rem;
                 margin-top: 0.5rem;
                 color: white;
                 height: 2rem;
+                cursor: pointer;
               ">
             Add Reference
           </button>
@@ -355,7 +253,12 @@
     </section>
   </main>
   <script src="resources/templates/3/js/index.js"></script>
+  <script src="resources/js/platforms.js"></script>
+  <script src="resources/js/links.js"></script>
   <script src="resources/js/about.js"></script>
+  <script src="resources/js/title.js"></script>
+  <script src="resources/js/references.js"></script>
+  <script src="resources/js/services.js"></script>
 </body>
 
 </html>
