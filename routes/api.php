@@ -20,3 +20,5 @@ $app->getRouter()->delete('/api/references', 'api\\ReferencesController@delete')
 $app->getRouter()->post('/api/links', 'api\\LinksController@store');
 $app->getRouter()->get('/api/links', 'api\\LinksController@get');
 $app->getRouter()->delete('/api/links', 'api\\LinksController@delete');
+
+$app->getRouter()->put('/api/templates', 'api\\TemplatesController@update');

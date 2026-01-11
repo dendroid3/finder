@@ -29,6 +29,12 @@ const fetchTitle = function () {
       if (imageElement && data.profile_picture_url) {
         imageElement.src = `profile_pictures/${data.profile_picture_url}`; // ✅ update image
       }
+
+      const templateIDElement = document.getElementById("current_template_id");
+
+      if(templateIDElement) {
+        templateIDElement.innerHTML=data.template_id
+      }
     })
     .catch((error) => {
       console.error("Error fetching title info:", error);
