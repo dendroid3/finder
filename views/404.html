@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 — Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1e293b, var(--bg));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    /* Floating background shapes */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      animation: float 18s infinite linear;
+    }
+
+    .orb.one {
+      width: 280px;
+      height: 280px;
+      background: #38bdf8;
+      top: 10%;
+      left: 15%;
+    }
+
+    .orb.two {
+      width: 360px;
+      height: 360px;
+      background: #a78bfa;
+      bottom: 15%;
+      right: 10%;
+      animation-duration: 22s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-40px) translateX(30px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.25rem;
+      padding: 3rem 2.5rem;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+    }
+
+    .code {
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--accent);
+      text-shadow: 0 0 30px var(--accent-soft);
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin: 0.75rem 0;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #020617;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.05);
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      .code {
+        font-size: 4rem;
+      }
+      .card {
+        padding: 2.25rem 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background -->
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <div class="card">
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>
+      The page you’re looking for doesn’t exist, was moved,
+      or never should have existed in the first place.
+    </p>
+
+    <div class="actions">
+      <button class="btn primary" id="homeBtn">Go home</button>
+      <button class="btn" id="backBtn">Go back</button>
+    </div>
+
+    <footer>
+      Lost, but not broken.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("homeBtn").addEventListener("click", () => {
+      window.location.href = "/";
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
