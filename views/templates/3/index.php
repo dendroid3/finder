@@ -118,7 +118,6 @@
           </div>
         </div>
         <hr />
-
         <div>
           <table id="links_table">
           </table>
