@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Creative Professional</title>
+    <meta name="template" content="4" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: #0a0a0a;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        padding: 1.5rem 5%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8rem 5% 4rem;
+        background: radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 245, 255, 0.1),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 0, 255, 0.1),
+            transparent 40%
+          );
+      }
+
+      .hero-content {
+        text-align: center;
+        max-width: 900px;
+      }
+
+      .hero-title {
+        font-size: 4.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff, #00f5ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient 3s ease infinite;
+        background-size: 200% auto;
+      }
+
+      @keyframes gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: #aaa;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 3rem;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+      }
+
+      section {
+        padding: 6rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        background: linear-gradient(45deg, #00f5ff, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(135deg, #00f5ff, #ff00ff);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8rem;
+        box-shadow: 0 20px 60px rgba(0, 245, 255, 0.3);
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #ccc;
+        margin-bottom: 1.5rem;
+      }
+
+      .links-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .link-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .link-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 245, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .link-box:hover::before {
+        left: 100%;
+      }
+
+      .link-box:hover {
+        transform: translateY(-10px);
+        border-color: #00f5ff;
+        box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+      }
+
+      .link-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .link-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #00f5ff;
+      }
+
+      .link-box p {
+        color: #999;
+        margin-bottom: 1rem;
+      }
+
+      .link-box a {
+        color: #ff00ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-box {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+      }
+
+      .service-box:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: scale(1.05);
+      }
+
+      .service-number {
+        font-size: 4rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+
+      .service-box h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .service-box p {
+        color: #aaa;
+        line-height: 1.7;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-box {
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 3px solid #00f5ff;
+        border-radius: 10px;
+        padding: 2.5rem;
+        position: relative;
+      }
+
+      .quote-icon {
+        font-size: 3rem;
+        color: rgba(0, 245, 255, 0.3);
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-text {
+        color: #ccc;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .author-info h4 {
+        color: #00f5ff;
+        font-size: 1.1rem;
+      }
+
+      .author-info p {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      .contact-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #00f5ff;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #00f5ff;
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1.2rem;
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 245, 255, 0.4);
+      }
+
+      footer {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #777;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="brand">PORTFOLIO</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#services">Work</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title" id="name_text"></h1>
+        <p class="hero-subtitle" id="title_text">
+          Building Digital Experiences That Matter
+        </p>
+        <a href="#contact" class="cta-button">Let's Work Together</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-image">🚀</div>
+        <div class="about-text">
+          <p id="about_paragraph"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="links">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="links-container" id="links_container"></div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Services & Work</h2>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-number">01</div>
+          <h3>Brand Identity</h3>
+          <p>
+            Creating memorable brand identities that resonate with your
+            audience. From logo design to complete brand guidelines, I ensure
+            consistency across all touchpoints.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2 class="section-title">What Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-box">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">
+            Working with this professional was an absolute game-changer for our
+            business. The attention to detail and creative solutions exceeded
+            all expectations.
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JD</div>
+            <div class="author-info">
+              <h4>Jessica Davis</h4>
+              <p>CEO, TechStart</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-container">
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Portfolio. Crafted with passion and code.</p>
+    </footer>
+
+    <script>
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        alert(
+          "Thank you for reaching out! This is a demo form. Your message would be sent in a live environment."
+        );
+        e.target.reset();
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+    <script src="resources/js/about.js"></script>
+    <script src="resources/js/links.js"></script>
+    <script src="resources/js/title.js"></script>
+    <script src="resources/js/references.js"></script>
+    <script src="resources/js/services.js"></script>
+  </body>
+</html>
