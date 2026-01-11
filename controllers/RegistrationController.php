@@ -73,7 +73,7 @@ class RegistrationController
                 ':password' => $hashedPassword
             ]);
 
-            // header('Location: /login');
+            header('Location: /login');
             exit;
 
         } catch (PDOException $e) {
