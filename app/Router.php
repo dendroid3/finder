@@ -19,6 +19,27 @@ class Router {
     }
 
     /**
+     * Register a PUT route
+     */
+    public function put($uri, $action) {
+        $this->routes['PUT'][$uri] = $action;
+    }
+
+    /**
+     * Register a PATCH route
+     */
+    public function patch($uri, $action) {
+        $this->routes['PATCH'][$uri] = $action;
+    }
+
+    /**
+     * Register a DELETE route
+     */
+    public function delete($uri, $action) {
+        $this->routes['DELETE'][$uri] = $action;
+    }
+
+    /**
      * Set a fallback route
      */
     public function fallback($action) {
@@ -30,7 +51,14 @@ class Router {
      */
     public function dispatch($uri, $method) {
         $uri = parse_url($uri, PHP_URL_PATH);
+
+        // Normalize method
         $method = strtoupper($method);
+
+        // Method override (for HTML forms)
+        if ($method === 'POST' && isset($_POST['_method'])) {
+            $method = strtoupper($_POST['_method']);
+        }
 
         if (!isset($this->routes[$method])) {
             $this->handleFallback($uri);
@@ -68,23 +96,27 @@ class Router {
             $file = __DIR__ . '/../controllers/' . str_replace('\\', '/', $controller) . '.php';
 
             if (!file_exists($file)) {
+                http_response_code(500);
                 die("Controller file $file not found!");
             }
+
             require_once $file;
 
             $fullController = "Controllers\\$controller";
+
             if (!class_exists($fullController)) {
+                http_response_code(500);
                 die("Controller class $fullController not found!");
             }
 
             $obj = new $fullController;
+
             if (!method_exists($obj, $method)) {
+                http_response_code(500);
                 die("Method $method not found in $fullController");
             }
 
-            // Call method with dynamic parameters
             call_user_func_array([$obj, $method], $params);
-            return;
         }
     }
 
